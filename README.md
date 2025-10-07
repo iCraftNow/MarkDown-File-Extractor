@@ -2,15 +2,17 @@
 
 <div align="center">
 
-![Unfurl Banner](https://img.shields.io/badge/Unfurl-Extract_Files_Instantly-4A90E2?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn5eyPC90ZXh0Pjwvc3ZnPg==)
+<img src="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png" alt="Unfurl Banner" width="800" style="border-radius: 12px; margin-bottom: 20px;" />
 
-[![Live Demo](https://img.shields.io/badge/🚀_Try_It_Now-Live_Demo-50E3C2?style=for-the-badge)](https://icraftnow.github.io/Unfurl/)
-[![GitHub Stars](https://img.shields.io/github/stars/iCraftNow/Unfurl?style=for-the-badge&logo=github&color=FFD700)](https://github.com/iCraftNow/Unfurl/stargazers)
+![Unfurl Badge](https://img.shields.io/badge/Unfurl-Extract_Files_Instantly-4A90E2?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn5eyPC90ZXh0Pjwvc3ZnPg==)
+
+[![Live Demo](https://img.shields.io/badge/🚀_Try_It_Now-Live_Demo-50E3C2?style=for-the-badge)](https://icraftnow.github.io/MarkDown-File-Extractor/)
+[![GitHub Stars](https://img.shields.io/github/stars/iCraftNow/MarkDown-File-Extractor?style=for-the-badge&logo=github&color=FFD700)](https://github.com/iCraftNow/MarkDown-File-Extractor/stargazers)
 [![Made by iCraftNow](https://img.shields.io/badge/Made_by-iCraftNow-FF6B6B?style=for-the-badge&logo=heart)](https://icraftnow.com/)
 
 **Stop the tedious copy-paste dance. Paste your entire LLM chat and Unfurl instantly extracts all code blocks into a downloadable ZIP.** ⚡
 
-[🎯 Use Now](https://icraftnow.github.io/Unfurl/) • [⭐ Star This Repo](https://github.com/iCraftNow/Unfurl) • [🛠️ More Tools](https://icraftnow.com/tools/)
+[🎯 Use Now](https://icraftnow.github.io/MarkDown-File-Extractor/) • [⭐ Star This Repo](https://github.com/iCraftNow/MarkDown-File-Extractor) • [🛠️ More Tools](https://icraftnow.com/tools/)
 
 </div>
 
@@ -104,7 +106,7 @@ Select all → Copy (or just save the chat as markdown)
 
 ### 3️⃣ Unfurl It!
 
-**[Open Unfurl](https://icraftnow.github.io/Unfurl/)** → Paste → Download ZIP
+**[Open Unfurl](https://icraftnow.github.io/MarkDown-File-Extractor/)** → Paste → Download ZIP
 
 **That's it!** 🎉 All your files are neatly organized and ready to use.
 
@@ -253,9 +255,9 @@ Love Unfurl? Check out our other developer tools:
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/icraft_now/)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/icraft_now)
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@icraftnow)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/icraftnow_bot)
 [![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/profile.php?id=61580835406672)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/iCraftNow/M)
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/icraftnow_bot)
 
 **Made with ❤️ by [iCraftNow](https://icraftnow.com/)**
 
@@ -267,7 +269,7 @@ Love Unfurl? Check out our other developer tools:
 
 ## 🎯 Ready to Save Hours of Your Life?
 
-### **[🚀 Try Unfurl Now](https://icraftnow.github.io/Unfurl/)**
+### **[🚀 Try Unfurl Now](https://icraftnow.github.io/MarkDown-File-Extractor/)**
 
 *No installation required. No sign-up. No credit card. Just pure productivity.*
 
@@ -275,6 +277,6 @@ Love Unfurl? Check out our other developer tools:
 
 **If Unfurl saved you time, show some love with a ⭐**
 
-[![Star History Chart](https://img.shields.io/github/stars/iCraftNow/Unfurl?style=social)](https://github.com/iCraftNow/Unfurl/stargazers)
+[![Star History Chart](https://img.shields.io/github/stars/iCraftNow/MarkDown-File-Extractor?style=social)](https://github.com/iCraftNow/MarkDown-File-Extractor/stargazers)
 
 </div>
