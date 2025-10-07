@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Unfurl - The AI Chat File Extractor</title>
+    <meta name="description" content="Stop the tedious copy-paste. Paste your entire LLM chat (ChatGPT, Claude, Gemini) and Unfurl instantly extracts all code blocks and files into a downloadable ZIP.">
+    <meta name="keywords" content="unfurl, file extractor, LLM, ChatGPT, Claude, Gemini, AI chat, code export, developer tool, code blocks, iCraftNow, zip download, syntax highlighting">
+    <link rel="canonical" href="https://icraftnow.github.io/Unfurl/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗂️</text></svg>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://icraftnow.github.io/Unfurl/">
+    <meta property="og:title" content="Unfurl - The AI Chat File Extractor">
+    <meta property="og:description" content="Paste your LLM chat and Unfurl instantly extracts all code blocks and files into a downloadable ZIP. No more tedious copy-pasting.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/iCraftNow/Unfurl/main/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://icraftnow.github.io/Unfurl/">
+    <meta property="twitter:title" content="Unfurl - The AI Chat File Extractor">
+    <meta property="twitter:description" content="Paste your LLM chat and Unfurl instantly extracts all code blocks and files into a downloadable ZIP. No more tedious copy-pasting.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/iCraftNow/Unfurl/main/og-image.png">
+    
+    <!-- Google Fonts - Material Design Typography & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+        <div class="app-title">
+            <span class="material-icons-round">folder_special</span>
+            <span>Unfurl</span>
+        </div>
+        <div class="top-app-bar-actions">
+            <button class="md-icon-button" id="shareBtn" title="Share this tool">
+                <span class="material-icons-round">share</span>
+            </button>
+            <button class="md-icon-button" id="themeToggle" title="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Upload Section -->
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-area" id="uploadArea">
+                <span class="material-icons-round">cloud_upload</span>
+                <h2>Drop your chat log or markdown file here</h2>
+                <p>or click to browse • Supports chat logs, .md, and .txt files</p>
+                <input type="file" id="fileInput" accept=".md,.txt" style="display: none;">
+            </div>
+
+            <textarea class="paste-area" id="pasteArea" placeholder="Or paste your chat content here...
+
+Unfurl automatically detects common file formats:
+
+1. Standard Markdown Code Fences
+```html:index.html
+<!DOCTYPE html>
+<html>...</html>
+```
+
+2. File Path Delimiters
+File: src/app.js
+console.log('Hello, world!');
+---
+
+Just paste your entire conversation and let Unfurl do the work!"></textarea>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <!-- File cards will be injected here by script.js -->
+        </div>
+    </div>
+
+    <!-- Floating Action Button (FAB) for downloading ZIP -->
+    <button class="md-fab" id="downloadZipBtn" style="display: none;" title="Download all files as ZIP">
+        <span class="material-icons-round">archive</span>
+    </button>
+
+    <!-- Snackbar for notifications -->
+    <div id="snackbar"></div>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
