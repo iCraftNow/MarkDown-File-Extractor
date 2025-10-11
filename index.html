@@ -70,11 +70,9 @@
 Unfurl automatically detects common file formats:
 
 1. Standard Markdown Code Fences
-```html:index.html
+:index.html
 <!DOCTYPE html>
 <html>...</html>
-```
-
 2. File Path Delimiters
 File: src/app.js
 console.log('Hello, world!');
@@ -85,7 +83,29 @@ Just paste your entire conversation and let Unfurl do the work!"></textarea>
 
         <!-- Results Section -->
         <div class="results-section" id="resultsSection" style="display: none;">
-            <!-- File cards will be injected here by script.js -->
+            <!-- File cards will be injected here by script.js. The card below is a structural placeholder. -->
+            <div class="file-card">
+                <div class="file-card-header">
+                    <div class="file-icon"><span class="material-icons-round">description</span></div>
+                    <div class="file-info">
+                        <div class="file-name" title="filename.ext">filename.ext</div>
+                        <div class="file-meta">
+                            <span class="file-ext">EXT</span>
+                            <span>0.00 KB</span>
+                            <span>0 lines</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="first-line-preview">
+                    <code>First line of file content...</code>
+                </div>
+                <div class="file-actions">
+                    <button class="action-button secondary copy-btn" title="Copy content"><span class="material-icons-round">content_copy</span>Copy</button>
+                    <button class="action-button secondary preview-btn" title="Preview content"><span class="material-icons-round">visibility</span>Preview</button>
+                    <button class="action-button download-btn" title="Download file"><span class="material-icons-round">download</span>Download</button>
+                </div>
+                <div class="code-preview"><pre><code></code></pre></div>
+            </div>
         </div>
     </div>
 

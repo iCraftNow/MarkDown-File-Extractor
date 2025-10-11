@@ -423,6 +423,28 @@ body {
     font-weight: 700;
 }
 
+.first-line-preview {
+    padding: 12px 16px;
+    background-color: var(--unfurl-color-input-bg);
+    border-top: 1px solid var(--unfurl-color-border);
+    font-family: var(--unfurl-font-mono);
+    font-size: 13px;
+    color: var(--unfurl-color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.file-card:hover .first-line-preview {
+    background-color: var(--unfurl-color-border);
+}
+
+.first-line-preview code {
+    display: block;
+}
+
 .file-actions {
     padding: 0 16px 16px;
     display: flex;
@@ -458,6 +480,11 @@ body {
 .action-button.secondary:hover {
     background-color: var(--unfurl-color-border);
     color: var(--unfurl-color-text);
+}
+
+.action-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
 }
 
 /* ===== CODE PREVIEW ===== */

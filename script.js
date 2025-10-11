@@ -167,6 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const icon = getFileIcon(file.extension);
         const language = getLanguageClass(file.extension);
         const sizeKB = (file.size / 1024).toFixed(2);
+        let firstLine = (file.content.split('\n')[0] || '').trim();
+        if (firstLine.length > 100) {
+            firstLine = firstLine.substring(0, 100) + '...';
+        }
+        firstLine = escapeHtml(firstLine);
 
         return `
             <div class="file-card" data-file-id="${file.id}">
@@ -181,9 +186,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </div>
+                <div class="first-line-preview">
+                    <code>${firstLine || '&nbsp;'}</code>
+                </div>
                 <div class="file-actions">
-                    <button class="action-button secondary preview-btn"><span class="material-icons-round">visibility</span>Preview</button>
-                    <button class="action-button download-btn"><span class="material-icons-round">download</span>Download</button>
+                    <button class="action-button secondary copy-btn" title="Copy content"><span class="material-icons-round">content_copy</span>Copy</button>
+                    <button class="action-button secondary preview-btn" title="Preview content"><span class="material-icons-round">visibility</span>Preview</button>
+                    <button class="action-button download-btn" title="Download file"><span class="material-icons-round">download</span>Download</button>
                 </div>
                 <div class="code-preview"><pre><code class="language-${language}">${escapeHtml(file.content)}</code></pre></div>
             </div>`;
@@ -194,11 +203,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = e.target.closest('.file-card');
         if (!card) return;
 
+        const file = extractedFiles.find(f => f.id === card.dataset.fileId);
+        if (!file) return;
+
         if (e.target.closest('.preview-btn') || e.target.closest('.file-card-header')) {
             togglePreview(card);
         } else if (e.target.closest('.download-btn')) {
-            const file = extractedFiles.find(f => f.id === card.dataset.fileId);
-            if (file) downloadFile(file);
+            downloadFile(file);
+        } else if (e.target.closest('.copy-btn')) {
+            copyFileContent(file, e.target.closest('.copy-btn'));
         }
     }
 
@@ -214,6 +227,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== FILE ACTIONS =====
+    async function copyFileContent(file, button) {
+        try {
+            await navigator.clipboard.writeText(file.content);
+            showToast(`Copied ${file.name} to clipboard!`, 'success');
+            
+            // Visual feedback on the button
+            const icon = button.querySelector('.material-icons-round');
+            const originalIcon = icon.textContent;
+            const originalText = button.childNodes[1].nodeValue; // "Copy" text node
+            
+            icon.textContent = 'check';
+            button.childNodes[1].nodeValue = 'Copied!';
+            button.disabled = true;
+
+            setTimeout(() => {
+                icon.textContent = originalIcon;
+                button.childNodes[1].nodeValue = originalText;
+                button.disabled = false;
+            }, 2000);
+
+        } catch (err) {
+            showToast('Failed to copy content.', 'error');
+            console.error('Clipboard API error:', err);
+        }
+    }
+
     function downloadFile(file) {
         const blob = new Blob([file.content], { type: 'text/plain;charset=utf-8' });
         const url = URL.createObjectURL(blob);
