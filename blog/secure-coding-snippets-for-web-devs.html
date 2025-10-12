@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>5 Secure Coding Snippets for Web Developers | Prevent XSS & SQLi</title>
+    <meta name="description" content="Protect your web applications from common vulnerabilities. Learn to prevent XSS, SQL Injection, and more with these 5 essential, easy-to-implement secure coding snippets.">
+    <meta name="keywords" content="secure coding, web security, XSS prevention, SQL injection, CSRF protection, password hashing, web development security, code snippets, security best practices, node.js security">
+    <link rel="canonical" href="https://icraftnow.github.io/MarkDown-File-Extractor/blog/secure-coding-snippets-for-web-devs.html">
+    <link rel="icon" href="../data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://icraftnow.github.io/MarkDown-File-Extractor/blog/secure-coding-snippets-for-web-devs.html">
+    <meta property="og:title" content="5 Secure Coding Snippets for Web Developers | Prevent XSS & SQLi">
+    <meta property="og:description" content="Protect your web applications from common vulnerabilities. Learn to prevent XSS, SQL Injection, and more with these 5 essential, easy-to-implement secure coding snippets.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png">
+    <meta property="article:published_time" content="2025-10-27T12:00:00Z">
+    <meta property="article:author" content="iCraftNow Team">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://icraftnow.github.io/MarkDown-File-Extractor/blog/secure-coding-snippets-for-web-devs.html">
+    <meta property="twitter:title" content="5 Secure Coding Snippets for Web Developers | Prevent XSS & SQLi">
+    <meta property="twitter:description" content="Protect your web applications from common vulnerabilities. Learn to prevent XSS, SQL Injection, and more with these 5 essential, easy-to-implement secure coding snippets.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png">
+    
+    <!-- Google Fonts - Material Design Typography & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* Article Specific Styles */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .article-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .article-meta {
+            color: var(--md-sys-color-on-surface-variant);
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .article-body h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface);
+            margin-top: 64px;
+            margin-bottom: 24px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--md-sys-color-primary-container);
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--md-sys-color-on-surface);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+        .article-body p {
+            margin-bottom: 24px;
+        }
+        .article-body a {
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .article-body a:hover {
+            text-decoration: underline;
+        }
+        .article-body ul, .article-body ol {
+            margin-left: 24px;
+            margin-bottom: 24px;
+        }
+        .article-body li {
+            margin-bottom: 12px;
+        }
+        .article-body pre {
+            margin-bottom: 24px;
+            border-radius: var(--md-sys-shape-corner-medium);
+            overflow: hidden;
+        }
+        .article-body code {
+            font-family: var(--md-sys-font-family-mono);
+            font-size: 0.95em;
+        }
+        .article-body pre code {
+            padding: 20px;
+        }
+        .article-body :not(pre) > code {
+            background-color: var(--md-sys-color-surface-container-high);
+            padding: 3px 6px;
+            border-radius: var(--md-sys-shape-corner-small);
+            color: var(--md-sys-color-on-surface);
+        }
+        .article-cta {
+            background-color: var(--md-sys-color-surface-container);
+            border: 1px solid var(--md-sys-color-outline-variant);
+            border-left: 5px solid var(--md-sys-color-primary);
+            padding: 32px;
+            margin: 48px 0;
+            border-radius: var(--md-sys-shape-corner-large);
+            text-align: center;
+        }
+        .article-cta h3 {
+            margin-top: 0;
+        }
+        .article-cta .md-button {
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+        <a href="../index.html" class="app-title" style="text-decoration: none; color: inherit;">
+            <span class="material-icons-round">folder_special</span>
+            <span>MarkDown File Extractor</span>
+        </a>
+        <div class="top-app-bar-actions">
+            <a href="../tool.html" class="md-icon-button" title="Launch Tool">
+                <span class="material-icons-round">play_arrow</span>
+            </a>
+            <button class="md-icon-button" id="themeToggle" title="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <article class="article-container">
+            <header class="article-header">
+                <h1 class="main-title">5 Essential Secure Coding Snippets Every Web Developer Should Know</h1>
+                <p class="subtitle">Protect your applications from common vulnerabilities like XSS, SQL Injection, and more with these practical, easy-to-implement code examples.</p>
+                <div class="article-meta">
+                    <span>Published on October 27, 2025</span> &bull; <span>By the iCraftNow Team</span> &bull; <span>8 min read</span>
+                </div>
+            </header>
+
+            <div class="article-body">
+                <p>As web developers, we love to build features. But in the race to ship, security can sometimes become an afterthought. This is a dangerous mindset. A single vulnerability can lead to data breaches, loss of user trust, and significant financial damage. The good news is that preventing the most common attacks often comes down to a few key coding practices.</p>
+                <p>In this post, we'll share five essential code snippets that address critical web security vulnerabilities. Think of these as your first line of defense—easy to understand, simple to implement, and powerful in their protection.</p>
+
+                <h2>1. Sanitize Inputs to Prevent Cross-Site Scripting (XSS)</h2>
+                <p><strong>The Threat:</strong> XSS attacks occur when a malicious script is injected into a trusted website. If your site displays user-provided content (like comments or profile names) without sanitizing it, an attacker could inject a <code>&lt;script&gt;</code> tag that steals other users' session cookies or performs actions on their behalf.</p>
+                <p><strong>The Solution:</strong> Always escape HTML content before rendering it on a page. This turns special characters like <code>&lt;</code> and <code>&gt;</code> into their safe entity equivalents (e.g., <code>&amp;lt;</code> and <code>&amp;gt;</code>), so the browser treats them as text, not code.</p>
+                <pre><code class="language-javascript">
+function escapeHTML(str) {
+    const p = document.createElement('p');
+    p.appendChild(document.createTextNode(str));
+    return p.innerHTML;
+}
+
+// Usage:
+const userInput = '<img src="x" onerror="alert(\'XSS Attack!\')">';
+const sanitizedInput = escapeHTML(userInput);
+// document.body.innerHTML = sanitizedInput; // This is now safe
+                </code></pre>
+                <p><strong>Note:</strong> While this simple function works for client-side examples, most modern frontend frameworks (like React and Vue) automatically sanitize content. On the backend, use a trusted library like <a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener">DOMPurify</a> for robust sanitization.</p>
+
+                <h2>2. Use Parameterized Queries to Stop SQL Injection</h2>
+                <p><strong>The Threat:</strong> SQL Injection happens when an attacker manipulates a SQL query by inserting their own malicious SQL. This can be used to bypass logins, steal an entire database, or even delete data. It's one of the oldest and most devastating web vulnerabilities.</p>
+                <p><strong>The Solution:</strong> Never, ever build SQL queries by concatenating strings with user input. Instead, use parameterized queries (also known as prepared statements). This separates the SQL command from the data, making it impossible for user input to be executed as code.</p>
+                <pre><code class="language-javascript">
+// Using the 'mysql2' package in Node.js
+const mysql = require('mysql2/promise');
+
+async function getUser(email) {
+    const connection = await mysql.createConnection(/* config */);
+
+    // INSECURE: Vulnerable to SQL Injection
+    // const [rows] = await connection.execute(`SELECT * FROM users WHERE email = '${email}'`);
+
+    // SECURE: Using a parameterized query
+    const sql = 'SELECT * FROM users WHERE email = ?';
+    const [rows] = await connection.execute(sql, [email]);
+    
+    return rows[0];
+}
+                </code></pre>
+                
+                <div class="article-cta">
+                    <h3>Working with Security Docs?</h3>
+                    <p>When you're reviewing security guidelines or tutorials, use our tool to quickly extract all the code snippets into a downloadable ZIP. Perfect for building your own security checklist.</p>
+                    <a href="../tool.html" class="md-button">
+                        <span class="material-icons-round">play_arrow</span>
+                        Extract Code Snippets Now
+                    </a>
+                </div>
+
+                <h2>3. Hash and Salt Passwords Correctly</h2>
+                <p><strong>The Threat:</strong> If your database is ever compromised, storing passwords in plain text is a catastrophic failure. Even simple hashing like MD5 or SHA1 is no longer secure due to rainbow tables and brute-force attacks.</p>
+                <p><strong>The Solution:</strong> Use a strong, slow, and salted hashing algorithm like Bcrypt or Argon2. These algorithms are computationally expensive, which makes them resistant to brute-force attacks. "Salting" adds a unique, random string to each password before hashing, ensuring that two identical passwords result in different hashes.</p>
+                <pre><code class="language-javascript">
+// Using the 'bcrypt' package in Node.js
+const bcrypt = require('bcrypt');
+const saltRounds = 10; // The higher the number, the more secure but slower
+
+async function hashPassword(plainTextPassword) {
+    const hash = await bcrypt.hash(plainTextPassword, saltRounds);
+    return hash;
+}
+
+async function checkPassword(plainTextPassword, hash) {
+    const isMatch = await bcrypt.compare(plainTextPassword, hash);
+    return isMatch;
+}
+                </code></pre>
+
+                <h2>4. Set Secure HTTP Headers with Middleware</h2>
+                <p><strong>The Threat:</strong> By default, web servers don't send HTTP headers that can protect your users from common attacks like clickjacking, cross-site scripting, and protocol downgrade attacks.</p>
+                <p><strong>The Solution:</strong> Use a middleware library to set several important security headers on every response. These headers instruct the browser to enforce stricter security policies.</p>
+                <pre><code class="language-javascript">
+// Using the 'helmet' package in Node.js with Express
+const express = require('express');
+const helmet = require('helmet');
+
+const app = express();
+
+// Use Helmet to set various security headers by default
+app.use(helmet());
+
+// Example headers set by Helmet:
+// - Strict-Transport-Security: Enforces secure (HTTP over SSL/TLS) connections.
+// - X-Content-Type-Options: Prevents MIME-sniffing.
+// - X-Frame-Options: Provides clickjacking protection.
+// - X-XSS-Protection: Enables the XSS filter built into most modern browsers.
+                </code></pre>
+
+                <h2>5. Protect Against Cross-Site Request Forgery (CSRF)</h2>
+                <p><strong>The Threat:</strong> A CSRF attack tricks a logged-in user into submitting a malicious request to your web application. For example, a user might click a link on a malicious site that, in the background, makes a request to `yourbank.com/transfer?to=attacker&amount=1000`, using the user's active login cookie.</p>
+                <p><strong>The Solution:</strong> The most common defense is the Synchronizer Token Pattern. The server generates a unique, random token for each user session and embeds it in a hidden form field. When the user submits the form, the server checks that the submitted token matches the one stored in the session. An attacker cannot guess this token, so their forged request will fail.</p>
+                <pre><code class="language-javascript">
+// Using the 'csurf' package in Node.js with Express and sessions
+const express = require('express');
+const session = require('express-session');
+const csrf = require('csurf');
+
+const app = express();
+
+// 1. Set up sessions
+app.use(session({ secret: 'your-secret-key', /* ... */ }));
+
+// 2. Set up CSRF protection
+const csrfProtection = csrf({ cookie: true });
+app.use(csrfProtection);
+
+// 3. In your route, pass the token to the view
+app.get('/profile', (req, res) => {
+  res.render('profile', { csrfToken: req.csrfToken() });
+});
+
+// 4. In your form (e.g., in an EJS/Pug template):
+// &lt;form action="/profile/update" method="POST"&gt;
+//   &lt;input type="hidden" name="_csrf" value="&lt;%= csrfToken %&gt;"&gt;
+//   &lt;!-- ... other form fields ... --&gt;
+// &lt;/form&gt;
+                </code></pre>
+
+                <h2>Conclusion: Security is a Process</h2>
+                <p>Writing secure code isn't about memorizing a thousand tricks. It's about understanding the common threats and consistently applying fundamental principles. By integrating these five practices into your development workflow, you can build a strong foundation of security for any web application. Start with these, stay curious, and never stop learning.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>MarkDown File Extractor</h4>
+                <p>A free online tool to instantly extract and download code blocks from documents and text files.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Product</h4>
+                <a href="../tool.html">Launch Tool</a>
+                <a href="../index.html#features">Features</a>
+                <a href="../index.html#faq">FAQ</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="../about.html">About Us</a>
+                <a href="index.html">Blog</a>
+                <a href="mailto:icraft.open.source@gmail.com">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-socials">
+                    <a href="https://github.com/iCraftNow/MarkDown-File-Extractor" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2Z"/></svg>
+                    </a>
+                    <a href="https://x.com/icraft_now" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/icraftnow/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5 1.75 1.75 0 0 1 6.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.62 1.62 0 0 0 13 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@iCraftNow" target="_blank" rel="noopener noreferrer" title="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21.582 7.644a2.448 2.448 0 0 0-1.732-1.732C18.25 5.5 12 5.5 12 5.5s-6.25 0-7.85.412a2.448 2.448 0 0 0-1.732 1.732C2 9.25 2 12 2 12s0 2.75.418 4.356a2.448 2.448 0 0 0 1.732 1.732C5.75 18.5 12 18.5 12 18.5s6.25 0 7.85-.412a2.448 2.448 0 0 0 1.732-1.732C22 14.75 22 12 22 12s0-2.75-.418-4.356zM9.75 14.5V9.5l4.5 2.5-4.5 2.5z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Crafted with <span class="heart">❤️</span> by the <a href="https://github.com/iCraftNow" target="_blank" rel="noopener noreferrer">IcraftNow Team</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- Minimal script for theme toggling & highlighting -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggler
+            const themeToggle = document.getElementById('themeToggle');
+            function applyTheme(theme) {
+                document.body.dataset.theme = theme;
+                if (themeToggle) {
+                    themeToggle.querySelector('.material-icons-round').textContent = theme === 'light' ? 'dark_mode' : 'light_mode';
+                }
+            }
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const newTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                    applyTheme(newTheme);
+                });
+            }
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+
+            // Syntax Highlighting
+            hljs.highlightAll();
+        });
+    </script>
+
+    <!-- JSON-LD Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "5 Essential Secure Coding Snippets Every Web Developer Should Know",
+      "description": "Protect your web applications from common vulnerabilities. Learn to prevent XSS, SQL Injection, and more with these 5 essential, easy-to-implement secure coding snippets.",
+      "image": "https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png",
+      "author": {
+        "@type": "Organization",
+        "name": "iCraftNow Team",
+        "url": "https://icraftnow.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "iCraftNow",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://icraftnow.github.io/MarkDown-File-Extractor/data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>"
+        }
+      },
+      "datePublished": "2025-10-27",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://icraftnow.github.io/MarkDown-File-Extractor/blog/secure-coding-snippets-for-web-devs.html"
+      }
+    }
+    </script>
+</body>
+</html>
