@@ -5,49 +5,295 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO Meta Tags -->
-    <title>Unfurl - The AI Chat File Extractor</title>
-    <meta name="description" content="Stop the tedious copy-paste. Paste your entire LLM chat (ChatGPT, Claude, Gemini) and Unfurl instantly extracts all code blocks and files into a downloadable ZIP.">
-    <meta name="keywords" content="unfurl, file extractor, LLM, ChatGPT, Claude, Gemini, AI chat, code export, developer tool, code blocks, iCraftNow, zip download, syntax highlighting">
-    <link rel="canonical" href="https://icraftnow.github.io/Unfurl/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗂️</text></svg>">
+    <title>MarkDown File Extractor | Instantly Extract Code from Any Document</title>
+    <meta name="description" content="Save time and streamline your workflow with MarkDown File Extractor. Our free online tool instantly parses Markdown, text files, or raw content to extract and download every code block. Perfect for developers, writers, and students.">
+    <meta name="keywords" content="code extractor, markdown parser, download code, zip archive, developer tool, text processing, file parsing, code snippet extractor, extract code from markdown, developer productivity tool, technical writing tool, download code blocks, parse text file, code export tool, iCraftNow">
+    <link rel="canonical" href="https://icraftnow.github.io/MarkDown-File-Extractor/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://icraftnow.github.io/Unfurl/">
-    <meta property="og:title" content="Unfurl - The AI Chat File Extractor">
-    <meta property="og:description" content="Paste your LLM chat and Unfurl instantly extracts all code blocks and files into a downloadable ZIP. No more tedious copy-pasting.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/iCraftNow/Unfurl/main/og-image.png">
+    <meta property="og:url" content="https://icraftnow.github.io/MarkDown-File-Extractor/">
+    <meta property="og:title" content="MarkDown File Extractor | Instantly Extract Code from Any Document">
+    <meta property="og:description" content="Save time and streamline your workflow with MarkDown File Extractor. Our free online tool instantly parses Markdown, text files, or raw content to extract and download every code block. Perfect for developers, writers, and students.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://icraftnow.github.io/Unfurl/">
-    <meta property="twitter:title" content="Unfurl - The AI Chat File Extractor">
-    <meta property="twitter:description" content="Paste your LLM chat and Unfurl instantly extracts all code blocks and files into a downloadable ZIP. No more tedious copy-pasting.">
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/iCraftNow/Unfurl/main/og-image.png">
+    <meta property="twitter:url" content="https://icraftnow.github.io/MarkDown-File-Extractor/">
+    <meta property="twitter:title" content="MarkDown File Extractor | Instantly Extract Code from Any Document">
+    <meta property="twitter:description" content="Save time and streamline your workflow with MarkDown File Extractor. Our free online tool instantly parses Markdown, text files, or raw content to extract and download every code block. Perfect for developers, writers, and students.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png">
     
     <!-- Google Fonts - Material Design Typography & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     
-    <!-- Highlight.js for syntax highlighting -->
+    <!-- Highlight.js for syntax highlighting (might be used on blog/docs) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* SEO Landing Page Specific Styles */
+        .top-app-bar nav {
+            display: flex;
+            gap: 16px;
+        }
+        .top-app-bar nav a {
+            text-decoration: none;
+            color: var(--md-sys-color-on-surface-variant);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--md-sys-shape-corner-full);
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .top-app-bar nav a:hover {
+            color: var(--md-sys-color-on-surface);
+            background-color: var(--md-sys-color-surface-container-high);
+        }
+        .top-app-bar .nav-cta {
+            background-color: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            padding: 10px 24px;
+            border-radius: var(--md-sys-shape-corner-full);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        .top-app-bar .nav-cta:hover {
+            background-color: color-mix(in srgb, var(--md-sys-color-primary) 90%, black);
+            box-shadow: var(--md-sys-elevation-1);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .hero-section .main-title {
+            font-size: 4rem;
+        }
+        .hero-section .subtitle {
+            font-size: 1.25rem;
+            max-width: 650px;
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        .hero-section .md-button {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .content-section:last-of-type {
+            border-bottom: none;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--md-sys-color-on-surface);
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--md-sys-color-on-surface-variant);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid, .how-it-works-grid, .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .feature-card, .step-card, .use-case-card {
+            background-color: var(--md-sys-color-surface-container);
+            padding: 32px;
+            border-radius: var(--md-sys-shape-corner-large);
+            text-align: center;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .feature-card .material-icons-round, .step-card .step-number {
+            font-size: 48px;
+            color: var(--md-sys-color-primary);
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .feature-card h3, .step-card h3, .use-case-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--md-sys-color-on-surface);
+        }
+        .feature-card p, .step-card p, .use-case-card p {
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .step-card .step-number {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background-color: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            font-weight: 700;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .faq-item summary {
+            padding: 20px 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.8rem;
+            color: var(--md-sys-color-primary);
+            transition: transform 0.2s;
+        }
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .faq-item .faq-answer {
+            padding-bottom: 20px;
+            color: var(--md-sys-color-on-surface-variant);
+            line-height: 1.7;
+        }
+
+        .final-cta-section {
+            background-color: var(--md-sys-color-surface-container);
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: var(--md-sys-shape-corner-extra-large);
+            margin-top: 60px;
+        }
+        .final-cta-section h2 {
+            font-size: 2.8rem;
+        }
+        .final-cta-section p {
+            margin-bottom: 32px;
+        }
+        .final-cta-section .md-button {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* New Footer Styles */
+        #main-footer {
+            padding: 60px 32px;
+            background-color: var(--md-sys-color-surface-container);
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-column a, .footer-column p {
+            display: block;
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+        .footer-column a:hover {
+            color: var(--md-sys-color-primary);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-socials a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--md-sys-color-surface-container-high);
+            border-radius: 50%;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .footer-socials a:hover {
+            background-color: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+        .footer-socials svg {
+            width: 20px;
+            height: 20px;
+        }
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .footer-bottom a {
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .top-app-bar nav { display: none; } /* Hide nav on mobile for simplicity */
+            .hero-section { padding: 60px 20px; }
+            .hero-section .main-title { font-size: 2.8rem; }
+            .hero-section .subtitle { font-size: 1.1rem; }
+            .section-header h2, .final-cta-section h2 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body data-theme="light">
     
     <!-- Top App Bar -->
     <header class="top-app-bar">
-        <div class="app-title">
+        <a href="/" class="app-title" style="text-decoration: none; color: inherit;">
             <span class="material-icons-round">folder_special</span>
-            <span>Unfurl</span>
-        </div>
+            <span>MarkDown File Extractor</span>
+        </a>
+        <nav>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://icraftnow.com/blog/" target="_blank" rel="noopener noreferrer">Blog</a>
+        </nav>
         <div class="top-app-bar-actions">
-            <button class="md-icon-button" id="shareBtn" title="Share this tool">
-                <span class="material-icons-round">share</span>
-            </button>
+            <a href="tool.html" class="nav-cta">Launch Tool</a>
             <button class="md-icon-button" id="themeToggle" title="Toggle theme">
                 <span class="material-icons-round">dark_mode</span>
             </button>
@@ -55,74 +301,211 @@
     </header>
 
     <!-- Main Container -->
-    <div class="container">
-        <!-- Upload Section -->
-        <div class="upload-section" id="uploadSection">
-            <div class="upload-area" id="uploadArea">
-                <span class="material-icons-round">cloud_upload</span>
-                <h2>Drop your chat log or markdown file here</h2>
-                <p>or click to browse • Supports chat logs, .md, and .txt files</p>
-                <input type="file" id="fileInput" accept=".md,.txt" style="display: none;">
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="main-title">Stop Manually Copying Code.</h1>
+            <p class="subtitle">Paste any document, text file, or Markdown content, and instantly extract every code block into downloadable files. Free, fast, and no sign-up required.</p>
+            <a href="tool.html" class="md-button">
+                <span class="material-icons-round">play_arrow</span>
+                Extract Code Now
+            </a>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="content-section">
+            <div class="section-header">
+                <h2>Powerful Features, Zero Hassle</h2>
+                <p>We built MarkDown File Extractor to be the simplest and most effective tool for the job.</p>
             </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="material-icons-round">file_present</span>
+                    <h3>Multi-Format Support</h3>
+                    <p>Works with standard Markdown fences, simple "File: name" delimiters, and custom formats. If it contains code, we can find it.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="material-icons-round">archive</span>
+                    <h3>Bulk ZIP Download</h3>
+                    <p>Save all extracted code blocks in a single, organized ZIP archive with one click. No more downloading files one by one.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="material-icons-round">code</span>
+                    <h3>Syntax Highlighting</h3>
+                    <p>Preview your extracted code with beautiful, language-aware syntax highlighting to easily verify your snippets before downloading.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="material-icons-round">bolt</span>
+                    <h3>Fast & Private</h3>
+                    <p>All processing happens directly in your browser. Your files and content never touch our servers, ensuring 100% privacy and speed.</p>
+                </div>
+            </div>
+        </section>
 
-            <textarea class="paste-area" id="pasteArea" placeholder="Or paste your chat content here...
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="content-section">
+            <div class="section-header">
+                <h2>Get Your Code in 3 Simple Steps</h2>
+                <p>From raw text to organized files in under a minute.</p>
+            </div>
+            <div class="how-it-works-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Upload or Paste</h3>
+                    <p>Drag and drop a .md or .txt file, or simply paste your raw content directly into the tool.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Instant Extraction</h3>
+                    <p>Our smart parser instantly identifies and separates every code block into individual virtual files.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Download Your Files</h3>
+                    <p>Download individual files or grab them all at once in a convenient ZIP archive. It's that easy!</p>
+                </div>
+            </div>
+        </section>
 
-Unfurl automatically detects common file formats:
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="content-section">
+            <div class="section-header">
+                <h2>Who Is This For?</h2>
+                <p>Anyone who works with code embedded in documents will find this tool invaluable.</p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <h3>Developers</h3>
+                    <p>Quickly pull code from documentation, tutorials, or GitHub issues without tedious copy-pasting. Perfect for setting up new projects or testing solutions.</p>
+                </div>
+                <div class="use-case-card">
+                    <h3>Technical Writers</h3>
+                    <p>Easily manage and verify code examples from your articles and documentation. Ensure all your snippets are accurate and up-to-date.</p>
+                </div>
+                <div class="use-case-card">
+                    <h3>Students & Educators</h3>
+                    <p>Extract all code from lecture notes, online tutorials, or assignments in one go. Spend more time learning and less time on manual data entry.</p>
+                </div>
+            </div>
+        </section>
 
-1. Standard Markdown Code Fences
-:index.html
-<!DOCTYPE html>
-<html>...</html>
-2. File Path Delimiters
-File: src/app.js
-console.log('Hello, world!');
----
-
-Just paste your entire conversation and let Unfurl do the work!"></textarea>
-        </div>
-
-        <!-- Results Section -->
-        <div class="results-section" id="resultsSection" style="display: none;">
-            <!-- File cards will be injected here by script.js. The card below is a structural placeholder. -->
-            <div class="file-card">
-                <div class="file-card-header">
-                    <div class="file-icon"><span class="material-icons-round">description</span></div>
-                    <div class="file-info">
-                        <div class="file-name" title="filename.ext">filename.ext</div>
-                        <div class="file-meta">
-                            <span class="file-ext">EXT</span>
-                            <span>0.00 KB</span>
-                            <span>0 lines</span>
-                        </div>
+        <!-- FAQ Section -->
+        <section id="faq" class="content-section">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-section">
+                <details class="faq-item">
+                    <summary>Is MarkDown File Extractor really free?</summary>
+                    <div class="faq-answer">
+                        <p>Yes, absolutely! The tool is 100% free to use. It's a project built by developers for developers. If you find it useful, we appreciate a share or a star on GitHub!</p>
                     </div>
+                </details>
+                <details class="faq-item">
+                    <summary>What file formats and content types are supported?</summary>
+                    <div class="faq-answer">
+                        <p>You can upload <code>.md</code> and <code>.txt</code> files. You can also paste any raw text content that contains code blocks. The tool is designed to recognize standard Markdown code fences (```), as well as custom formats like <code>File: filename.js ... ---</code>.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is my data safe and private?</summary>
+                    <div class="faq-answer">
+                        <p>Your privacy is our top priority. All file parsing and code extraction happens entirely within your web browser. Your data is never uploaded to any server, ensuring it remains completely private and secure.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to create an account to use the tool?</summary>
+                    <div class="faq-answer">
+                        <p>No account or sign-up is required. You can use the tool immediately. We believe in providing a frictionless experience to help you get your work done faster.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section">
+            <div class="section-header">
+                <h2>Ready to Boost Your Productivity?</h2>
+                <p>Stop wasting time on manual tasks. Extract your code snippets in seconds.</p>
+                <a href="tool.html" class="md-button">
+                    <span class="material-icons-round">rocket_launch</span>
+                    Launch the Extractor for Free
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- New Static Footer -->
+    <footer id="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>MarkDown File Extractor</h4>
+                <p>A free online tool to instantly extract and download code blocks from documents and text files.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Product</h4>
+                <a href="tool.html">Launch Tool</a>
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="https://icraftnow.com/about/" target="_blank" rel="noopener noreferrer">About Us</a>
+                <a href="https://icraftnow.com/blog/" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="mailto:icraft.open.source@gmail.com">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-socials">
+                    <a href="https://github.com/iCraftNow/MarkDown-File-Extractor" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2Z"/></svg>
+                    </a>
+                    <a href="https://x.com/icraft_now" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
                 </div>
-                <div class="first-line-preview">
-                    <code>First line of file content...</code>
-                </div>
-                <div class="file-actions">
-                    <button class="action-button secondary copy-btn" title="Copy content"><span class="material-icons-round">content_copy</span>Copy</button>
-                    <button class="action-button secondary preview-btn" title="Preview content"><span class="material-icons-round">visibility</span>Preview</button>
-                    <button class="action-button download-btn" title="Download file"><span class="material-icons-round">download</span>Download</button>
-                </div>
-                <div class="code-preview"><pre><code></code></pre></div>
             </div>
         </div>
-    </div>
+        <div class="footer-bottom">
+            <p>Crafted with <span class="heart">❤️</span> by the <a href="https://icraftnow.com/" target="_blank" rel="noopener noreferrer">IcraftNow Team</a>. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <!-- Floating Action Button (FAB) for downloading ZIP -->
-    <button class="md-fab" id="downloadZipBtn" style="display: none;" title="Download all files as ZIP">
-        <span class="material-icons-round">archive</span>
-    </button>
-
-    <!-- Snackbar for notifications -->
+    <!-- Snackbar for notifications (can be used for theme toggle feedback) -->
     <div id="snackbar"></div>
 
-    <!-- External Libraries -->
+    <!-- External Libraries (kept for theme toggle and potential future use) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
-    <!-- Main Script -->
+    <!-- Main Script (will need modification for landing page) -->
     <script src="script.js"></script>
+    <script>
+        // Minimal JS for landing page functionality like theme toggle
+        // The full script.js is for the tool page, this is a simplified version
+        // or an override. For this task, I'll assume script.js will be adapted.
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            
+            function applyTheme(theme) {
+                document.body.dataset.theme = theme;
+                if (themeToggle) {
+                    themeToggle.querySelector('.material-icons-round').textContent = theme === 'light' ? 'dark_mode' : 'light_mode';
+                }
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const newTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                    applyTheme(newTheme);
+                });
+            }
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+        });
+    </script>
 </body>
 </html>

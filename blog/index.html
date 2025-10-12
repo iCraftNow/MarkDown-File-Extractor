@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Blog | MarkDown File Extractor - Articles & Tutorials</title>
+    <meta name="description" content="Explore articles, tutorials, and tips on code extraction, Markdown best practices, and developer productivity from the MarkDown File Extractor team.">
+    <meta name="keywords" content="blog, articles, tutorials, code extraction, markdown tips, developer productivity, programming help, software development, iCraftNow">
+    <link rel="canonical" href="https://icraftnow.github.io/MarkDown-File-Extractor/blog/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://icraftnow.github.io/MarkDown-File-Extractor/blog/">
+    <meta property="og:title" content="Blog | MarkDown File Extractor - Articles & Tutorials">
+    <meta property="og:description" content="Explore articles, tutorials, and tips on code extraction, Markdown best practices, and developer productivity from the MarkDown File Extractor team.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://icraftnow.github.io/MarkDown-File-Extractor/blog/">
+    <meta property="twitter:title" content="Blog | MarkDown File Extractor - Articles & Tutorials">
+    <meta property="twitter:description" content="Explore articles, tutorials, and tips on code extraction, Markdown best practices, and developer productivity from the MarkDown File Extractor team.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/iCraftNow/MarkDown-File-Extractor/main/og-image.png">
+    
+    <!-- Google Fonts - Material Design Typography & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* Blog Specific Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .article-card {
+            background-color: var(--md-sys-color-surface-container);
+            border-radius: var(--md-sys-shape-corner-large);
+            overflow: hidden;
+            box-shadow: var(--md-sys-elevation-1);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--md-sys-color-outline-variant);
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--md-sys-elevation-3);
+            border-color: var(--md-sys-color-outline);
+        }
+
+        .article-card-image {
+            height: 200px;
+            background-color: var(--md-sys-color-surface-container-high);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-sys-color-primary);
+        }
+        
+        .article-card-image .material-icons-round {
+            font-size: 64px;
+            opacity: 0.5;
+        }
+
+        .article-card-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            color: var(--md-sys-color-on-surface);
+        }
+
+        .article-card-content p {
+            font-size: 1rem;
+            color: var(--md-sys-color-on-surface-variant);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .article-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        
+        .article-card-footer .read-more {
+            color: var(--md-sys-color-primary);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .article-card-footer .read-more .material-icons-round {
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+        
+        .article-card:hover .read-more .material-icons-round {
+            transform: translateX(4px);
+        }
+
+        /* New Footer Styles from index.html */
+        #main-footer {
+            padding: 60px 32px;
+            background-color: var(--md-sys-color-surface-container);
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--md-sys-color-on-surface);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-column a, .footer-column p {
+            display: block;
+            color: var(--md-sys-color-on-surface-variant);
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: color 0.2s;
+        }
+        .footer-column a:hover {
+            color: var(--md-sys-color-primary);
+        }
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-socials a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--md-sys-color-surface-container-high);
+            border-radius: 50%;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .footer-socials a:hover {
+            background-color: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+        }
+        .footer-socials svg {
+            width: 20px;
+            height: 20px;
+        }
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--md-sys-color-outline-variant);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+        .footer-bottom a {
+            color: var(--md-sys-color-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    
+    <!-- Top App Bar -->
+    <header class="top-app-bar">
+        <a href="../index.html" class="app-title" style="text-decoration: none; color: inherit;">
+            <span class="material-icons-round">folder_special</span>
+            <span>MarkDown File Extractor</span>
+        </a>
+        <div class="top-app-bar-actions">
+            <a href="../tool.html" class="md-icon-button" title="Launch Tool">
+                <span class="material-icons-round">play_arrow</span>
+            </a>
+            <button class="md-icon-button" id="themeToggle" title="Toggle theme">
+                <span class="material-icons-round">dark_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Page Title -->
+        <section class="page-title-container">
+            <h1 class="main-title">From the Blog</h1>
+            <p class="subtitle">Articles, tutorials, and insights on developer productivity, Markdown, and code management.</p>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="blog-grid">
+            <!-- Placeholder Article 1 -->
+            <a href="#" class="article-card">
+                <div class="article-card-image">
+                    <span class="material-icons-round">speed</span>
+                </div>
+                <div class="article-card-content">
+                    <h3>5 Ways to Extract Code from Markdown Like a Pro</h3>
+                    <p>Discover various techniques for pulling code from your documents, from simple scripts to advanced tools, and see how our extractor streamlines the process.</p>
+                    <div class="article-card-footer">
+                        <span>Oct 12, 2025 • 5 min read</span>
+                        <span class="read-more">Read More <span class="material-icons-round">arrow_forward</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Placeholder Article 2 -->
+            <a href="#" class="article-card">
+                <div class="article-card-image">
+                    <span class="material-icons-round">code</span>
+                </div>
+                <div class="article-card-content">
+                    <h3>Mastering Markdown: A Complete Guide for Developers</h3>
+                    <p>Go beyond the basics. Learn about advanced Markdown syntax, creating tables, diagrams, and how to embed code snippets effectively for technical documentation.</p>
+                    <div class="article-card-footer">
+                        <span>Oct 05, 2025 • 8 min read</span>
+                        <span class="read-more">Read More <span class="material-icons-round">arrow_forward</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Placeholder Article 3 -->
+            <a href="#" class="article-card">
+                <div class="article-card-image">
+                    <span class="material-icons-round">rocket_launch</span>
+                </div>
+                <div class="article-card-content">
+                    <h3>How Our Code Extractor Can 10x Your Workflow</h3>
+                    <p>A deep dive into practical use cases. See how developers, writers, and students are saving hours of tedious work by automating their code extraction tasks.</p>
+                    <div class="article-card-footer">
+                        <span>Sep 28, 2025 • 6 min read</span>
+                        <span class="read-more">Read More <span class="material-icons-round">arrow_forward</span></span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Placeholder Article 4 -->
+            <a href="#" class="article-card">
+                <div class="article-card-image">
+                    <span class="material-icons-round">inventory_2</span>
+                </div>
+                <div class="article-card-content">
+                    <h3>The Ultimate Guide to Organizing Your Code Snippets</h3>
+                    <p>Tired of losing track of useful code? Explore best practices and tools for managing a personal code snippet library for maximum efficiency and reuse.</p>
+                    <div class="article-card-footer">
+                        <span>Sep 21, 2025 • 7 min read</span>
+                        <span class="read-more">Read More <span class="material-icons-round">arrow_forward</span></span>
+                    </div>
+                </div>
+            </a>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>MarkDown File Extractor</h4>
+                <p>A free online tool to instantly extract and download code blocks from documents and text files.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Product</h4>
+                <a href="../tool.html">Launch Tool</a>
+                <a href="../index.html#features">Features</a>
+                <a href="../index.html#faq">FAQ</a>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="https://icraftnow.com/about/" target="_blank" rel="noopener noreferrer">About Us</a>
+                <a href="#">Blog</a>
+                <a href="mailto:icraft.open.source@gmail.com">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="footer-socials">
+                    <a href="https://github.com/iCraftNow/MarkDown-File-Extractor" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69a3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.58 9.58 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.4.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2Z"/></svg>
+                    </a>
+                    <a href="https://x.com/icraft_now" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Crafted with <span class="heart">❤️</span> by the <a href="https://icraftnow.com/" target="_blank" rel="noopener noreferrer">IcraftNow Team</a>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Snackbar for notifications -->
+    <div id="snackbar"></div>
+    
+    <!-- Minimal script for theme toggling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            
+            function applyTheme(theme) {
+                document.body.dataset.theme = theme;
+                if (themeToggle) {
+                    themeToggle.querySelector('.material-icons-round').textContent = theme === 'light' ? 'dark_mode' : 'light_mode';
+                }
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const newTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+                    localStorage.setItem('theme', newTheme);
+                    applyTheme(newTheme);
+                });
+            }
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            applyTheme(savedTheme);
+        });
+    </script>
+</body>
+</html>
